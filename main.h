@@ -23,8 +23,8 @@
 //functions
 #define WORD_TYPE unsigned int // put the most adapted type for the current wordsize
 #define KEY_TYPE unsigned int
-#define LCS _lrotl // left circular shift
-#define RCS _lrotr // right circular shift
+#define LCS rotl // left circular shift
+#define RCS rotr // right circular shift
 #define R(x,y,k) (x= (WORD_TYPE) RCS(x,ALPHA), x+=y, x^=k, y= (WORD_TYPE) LCS(y,BETA), y^=x)
 
 

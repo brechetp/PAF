@@ -5,7 +5,6 @@
  *      Author: Pierre
  */
  
-#include <x86intrin.h>
 #include <stdio.h>
 #include "main.h"
 #include "foncs.h"
@@ -27,7 +26,7 @@ Ciphertext: a65d985179783265 7860fedf5c570d18
 */
  
  
-        printf("sizeof alpha %d \n",sizeof(ALPHA));
+        printf("sizeof alpha %lu \n",sizeof(ALPHA));
         
 
 
@@ -54,7 +53,7 @@ Ciphertext: a65d985179783265 7860fedf5c570d18
         
         printf("Voici le texte chiffré %x et %x \n",ct[0],ct[1]);
 
-        printf("Voici la bonne valeur %llx et %llx \n",solution[0],solution[1]);
+        printf("Voici la bonne valeur %x et %x \n",solution[0],solution[1]);
 
 	return 0;
 }
