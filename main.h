@@ -28,5 +28,5 @@
 #define R(x,y,k) (x= (WORD_TYPE) RCS(x,ALPHA), x+=y, x^=k, y= (WORD_TYPE) LCS(y,BETA), y^=x)
 
 	
-#endif /* MAIN_H_ */
+#endif /* MAIN_H_ */
 	

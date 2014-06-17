@@ -19,8 +19,8 @@ void SpeckKeyExpansion(WORD_TYPE K[]){
         for(i=0; i<N_ROUNDS-1; i++){
 
 			    printf("%d eme itération : K[i] %lu RCS(L[i], ALPHA) %lu \n",i,sizeof(K[i]), sizeof((WORD_TYPE) RCS(L[i], ALPHA)));
-				L[i+M-1]= (K[i]+(WORD_TYPE) RCS(L[i], ALPHA)) ^ i;
-                K[i+1] = ((WORD_TYPE) LCS(K[i], BETA) ^ L[i+M-1]);
+				L[i+M-1]= (K[i]+ RCS(L[i], ALPHA)) ^ i;
+                K[i+1] = ( LCS(K[i], BETA) ^ L[i+M-1]);
         
         }
         
