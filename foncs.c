@@ -17,8 +17,9 @@ void SpeckKeyExpansion(WORD_TYPE K[]){
         
         //expansion loop
         for(i=0; i<N_ROUNDS-1; i++){
+
 			    printf("%d eme itération : K[i] %lu RCS(L[i], ALPHA) %lu \n",i,sizeof(K[i]), sizeof((WORD_TYPE) RCS(L[i], ALPHA)));
-                L[i+M-1]= (K[i]+(WORD_TYPE) RCS(L[i], ALPHA)) ^ i;
+				L[i+M-1]= (K[i]+(WORD_TYPE) RCS(L[i], ALPHA)) ^ i;
                 K[i+1] = ((WORD_TYPE) LCS(K[i], BETA) ^ L[i+M-1]);
         
         }
@@ -60,11 +61,14 @@ void Speck128ExpandKeyAndEncrypt(WORD_TYPE pt[],WORD_TYPE ct[],WORD_TYPE K[]){
 WORD_TYPE rotl(WORD_TYPE value, int shift){
 	
 	return (value << shift | value >> (sizeof(WORD_TYPE)*CHAR_SIZE-shift));
+
 }
 
 WORD_TYPE rotr(WORD_TYPE value, int shift){
 	
+
 	return (value >> shift | value << (sizeof(WORD_TYPE)*CHAR_SIZE-shift));
+
 }
 
 
