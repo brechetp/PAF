@@ -1,4 +1,3 @@
-#include <x86intrin.h>
 #include <stdio.h>
 #include "main.h"
 #include "foncs.h"
@@ -58,13 +57,13 @@ void Speck128ExpandKeyAndEncrypt(WORD_TYPE pt[],WORD_TYPE ct[],WORD_TYPE K[]){
 	
 }
 
-WORD_TYPE rotl(WORD_TYPE value, int shift){
+WORD_TYPE rotl(WORD_TYPE value, int shift){ // left cicruclar shift
 	
 	return (value << shift | value >> (sizeof(WORD_TYPE)*CHAR_SIZE-shift));
 
 }
 
-WORD_TYPE rotr(WORD_TYPE value, int shift){
+WORD_TYPE rotr(WORD_TYPE value, int shift){ // right circular shift
 	
 
 	return (value >> shift | value << (sizeof(WORD_TYPE)*CHAR_SIZE-shift));
