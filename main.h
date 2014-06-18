@@ -21,7 +21,7 @@
 #define BETA (WORD_SIZE == 16) ? 2 : 3
 //function
 
-#define WORD_TYPE unsigned short // put the most adapted type for the current wordsize
+#define WORD_TYPE unsigned int // put the most adapted type for the current wordsize
 
 #define LCS rotl // left circular shift
 #define RCS rotr // right circular shift

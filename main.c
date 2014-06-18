@@ -9,7 +9,16 @@
 #include "main.h"
 #include "foncs.h"
 
+	WORD_TYPE K[4] = {0x0100,0x0908,0x1110,0x1918}; // N_ROUNDS
+    WORD_TYPE pt[2]= /*{0x7469206564616d20,0x6c61766975716520};*/{0x694c, 0x6574};
+        
+    WORD_TYPE ct[2];
+    WORD_TYPE solution[2] = {0x42f2, 0xa868};
+ 
 
+        //K initialisation
+        
+    //K[0] = /*0x0706050403020100; */
 
 int main (int argc,char *argv[]){
 //64/128
@@ -26,24 +35,11 @@ Ciphertext: a65d985179783265 7860fedf5c570d18
 */
  
  
-        printf("sizeof alpha %lu \n",sizeof(ALPHA));
+        //printf("sizeof alpha %lu \n",sizeof(ALPHA));
         
 
-
-        WORD_TYPE K[N_ROUNDS] ;
-        WORD_TYPE pt[2]= /*{0x7469206564616d20,0x6c61766975716520};*/{0x694c, 0x6574};
-        
-        WORD_TYPE ct[2];
-        WORD_TYPE solution[2] = {0x42f2, 0xa868};
- 
-
-        //K initialisation
-        
-        K[0] = /*0x0706050403020100; */0x0100;
-        K[1] = /*0x0f0e0d0c0b0a0908; */0x0908;
-        K[2] = 0x1110;
-        K[3] = 0x1918;
-
+		
+      
 
      
         SpeckKeyExpansion(K);

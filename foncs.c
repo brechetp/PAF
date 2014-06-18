@@ -1,4 +1,4 @@
-#include <x86intrin.h>
+//#include <x86intrin.h>
 #include <stdio.h>
 #include "main.h"
 #include "foncs.h"
