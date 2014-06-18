@@ -10,7 +10,6 @@
 #include "foncs.h"
 
 
-
 int main (int argc,char *argv[]){
 //64/128
 /*Key:
@@ -26,7 +25,6 @@ Ciphertext: a65d985179783265 7860fedf5c570d18
 */
  
  
-        printf("sizeof alpha %lu \n",sizeof(ALPHA));
         
 
 

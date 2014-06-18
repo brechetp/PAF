@@ -74,6 +74,8 @@ WORD_TYPE rotr(WORD_TYPE value, int shift){
 
 
 
+
+
 	
 	
 
