@@ -24,10 +24,6 @@ Key:
 Plaintext: 6c61766975716520 7469206564616d20
 Ciphertext: a65d985179783265 7860fedf5c570d18
 */
- 
- 
-        printf("sizeof alpha %lu \n",sizeof(ALPHA));
-        
 
 
         WORD_TYPE K[N_ROUNDS] ;
