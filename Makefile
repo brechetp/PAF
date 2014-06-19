@@ -18,20 +18,20 @@ CA65FLAGS  =#
 # (for intrinsic types or 8 versus 32 bit implementations)
 CC65FLAGS += -D_6502#
 
-SRCS= main.c foncs.c
+SRCS=main.c foncs.c
 
 OBJS=$(SRCS:.c=.o)
 
-TARGET=algo
+TARGET=main
 
 .SUFFIXES: # This declaration has the side effect of disabling %o:%c
            # implicit rules using cc instead of making make go through our
 		   # dependencies
 
 
-all: $(TARGET)
+all: $(TARGET).exe
 
-$(TARGET): $(OBJS)
+$(TARGET).exe: $(OBJS)
 	$(LD65) $(LD65FLAGS) -o $@ -S $(MAIN_ADD) $^ $(MACH).o $(MACH).lib -m $(patsubst %.exe,%.map,$@) -Ln $(patsubst %.exe,%.lbl,$@)
 	@echo "# Size in bytes for $@:   $$(wc -c $@ | cut -d' ' -f1)"
 	@echo "# Program address for $@: $$(echo $(MAIN_ADD) | sed -e 's/0x0*//')"
@@ -43,7 +43,7 @@ $(TARGET): $(OBJS)
 %.o: %.s
 	$(CA65) $(CA65FLAGS) -o $@ $<
 
-%: %.o
+%.exe: %.o
 	$(LD65) $(LD65FLAGS) -o $@ -S $(MAIN_ADD) $^ $(MACH).o $(MACH).lib -m $(patsubst %.exe,%.map,$@) -Ln $(patsubst %.exe,%.lbl,$@)
 	@echo "# Size in bytes for $@:   $$(wc -c $@ | cut -d' ' -f1)"
 	@echo "# Program address for $@: $$(echo $(MAIN_ADD) | sed -e 's/0x0*//')"
