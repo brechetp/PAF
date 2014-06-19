@@ -1,9 +1,0 @@
-#ifndef MAIN_H_
-#define MAIN_H_
-
-
-unsigned int rotr(unsigned int value, int shift);
-
-unsigned int rotl(unsigned int value, int shift);
-
-#endif
