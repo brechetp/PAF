@@ -2,6 +2,7 @@
 #include <stdio.h>
 #include "main.h"
 #include "foncs.h"
+#define MAX 16777215
 
 void SpeckKeyExpansion(WORD_TYPE K[]){
         
@@ -9,7 +10,7 @@ void SpeckKeyExpansion(WORD_TYPE K[]){
         WORD_TYPE L[N_ROUNDS+M-2];
         
         //initialisation of L
-        for(i=0; i < M-1; i++) 
+        for(i=0; i < M-1; i++)
                 L[i] = K[i+1];
         
         
@@ -18,10 +19,10 @@ void SpeckKeyExpansion(WORD_TYPE K[]){
         //expansion loop
         for(i=0; i<N_ROUNDS-1; i++){
 
-			    printf("%d eme itération : K[i] %lu RCS(L[i], ALPHA) %lu \n",i,sizeof(K[i]), sizeof((WORD_TYPE) RCS(L[i], ALPHA)));
-				L[i+M-1]= (K[i]+ RCS(L[i], ALPHA)) ^ i;
-                K[i+1] = ( LCS(K[i], BETA) ^ L[i+M-1]);
-        
+			   // printf("%d eme itération : K[i] %lu RCS(L[i], ALPHA) %lu \n",i,sizeof(K[i]), sizeof((WORD_TYPE) RCS(L[i], ALPHA)));
+				L[i+M-1]= MAX & ((modulosum(K[i],RCS(L[i], ALPHA))) ^ i);
+                K[i+1] = MAX & ( LCS(K[i], BETA) ^ L[i+M-1]);
+		
         }
         
 
@@ -60,15 +61,22 @@ void Speck128ExpandKeyAndEncrypt(WORD_TYPE pt[],WORD_TYPE ct[],WORD_TYPE K[]){
 
 WORD_TYPE rotl(WORD_TYPE value, int shift){
 	
-	return (value << shift | value >> (sizeof(WORD_TYPE)*CHAR_SIZE-shift));
+	return  (MAX &(value << shift | value >> (WORD_SIZE-shift)));
 
 }
 
 WORD_TYPE rotr(WORD_TYPE value, int shift){
 	
 
-	return (value >> shift | value << (sizeof(WORD_TYPE)*CHAR_SIZE-shift));
+	return (MAX &(value >> shift | value << (WORD_SIZE-shift)));
 
+}
+
+WORD_TYPE modulosum(WORD_TYPE lefto, WORD_TYPE righto){
+	
+	WORD_TYPE res = lefto + righto;
+
+	return (res & MAX);
 }
 
 

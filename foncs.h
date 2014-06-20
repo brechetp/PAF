@@ -16,6 +16,8 @@ WORD_TYPE RCS(WORD_TYPE value, int shift);
 
 WORD_TYPE LCS(WORD_TYPE value, int shift);
 
+WORD_TYPE modulosum(WORD_TYPE lefto, WORD_TYPE righto);
+
 
 
 #endif
