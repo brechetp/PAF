@@ -30,11 +30,14 @@ Ciphertext: a65d985179783265 7860fedf5c570d18
         
 
 
-        WORD_TYPE K[N_ROUNDS] = {0x020100, 0x0a0908, 0x121110 } ;
-        WORD_TYPE pt[2]= /*{0x7469206564616d20,0x6c61766975716520};*/{ 0x6c6172, 0x20796c,};
+        WORD_TYPE K[N_ROUNDS] = {0x050403020100
+, 0x0d0c0b0a0908} ;
+        WORD_TYPE pt[2]= /*{0x7469206564616d20,0x6c61766975716520};*/{ 0x656761737520, 0x65776f68202c
+,};
         
         WORD_TYPE ct[2];
-        WORD_TYPE solution[2] = { 0x385adc, 0xc049a5};//32/64 {0x42f2, 0xa868};
+        WORD_TYPE solution[2] = { 0x62bdde8f79aa
+, 0x9e4d09ab7178};//32/64 {0x42f2, 0xa868};
  
 
         //K initialisation
@@ -51,12 +54,12 @@ Ciphertext: a65d985179783265 7860fedf5c570d18
         SpeckEncrypt(pt, ct, K);
         
         
-        printf("Voici le texte chiffré %x et %x \n",ct[0],ct[1]);
+        printf("Voici le texte chiffré %lx et %lx \n",ct[0],ct[1]);
 
-        printf("Voici la bonne valeur %x et %x \n",solution[0],solution[1]);
+        printf("Voici la bonne valeur %lx et %lx \n",solution[0],solution[1]);
 	
-	printf( "ct[0] =%d \n",(ct[0]-16777215));
-	printf("rotl(1,23) %d",rotl(1,23));
+	//printf( "ct[0] =%d \n",(ct[0]-16777215));
+	//printf("rotl(1,23) %d",rotl(1,23));
 
 	return 0;
 }

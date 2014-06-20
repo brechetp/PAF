@@ -18,7 +18,7 @@ WORD_TYPE LCS(WORD_TYPE value, int shift);
 
 WORD_TYPE modulosum(WORD_TYPE lefto, WORD_TYPE righto);
 
-
+WORD_TYPE limitToMaxBits(WORD_TYPE entry);
 
 #endif
 
