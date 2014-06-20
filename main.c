@@ -11,7 +11,7 @@
 
 
 
-int main (int argc,char *argv[]){
+int main (){
 //64/128
 /*Key:
 1b1a1918 13121110 0b0a0908 03020100

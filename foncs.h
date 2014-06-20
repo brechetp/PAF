@@ -8,7 +8,7 @@ void SpeckKeyExpansion(WORD_TYPE K[]);
 
 void Speck128ExpandKeyAndEncrypt(WORD_TYPE pt[],WORD_TYPE ct[],WORD_TYPE K[]);
 
-WORD_TYPE rotr(WORD_TYPE value, int shift);
+WORD_TYPE rotr(WORD_TYPE value, uint8_t shift);
 
 WORD_TYPE rotl(WORD_TYPE value, int shift);
 
